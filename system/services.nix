@@ -7,6 +7,7 @@ let
   );
 in
 {
+  environment.systemPackages = [ sddm-astronaut ]; #Here bc if not the sddm theme doesn't work
   services = {
     pipewire = {
       enable = true;
@@ -19,7 +20,6 @@ in
         theme = "sddm-astronaut-theme";
         package = pkgs.kdePackages.sddm;
         extraPackages = with pkgs; [
-          sddm-astronaut
           kdePackages.qtmultimedia
           kdePackages.qtsvg
           kdePackages.qtdeclarative

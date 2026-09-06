@@ -14,7 +14,6 @@
       kitty
       os-prober
       bibata-cursors
-      sddm-astronaut
     ];
     sessionVariables = {
       XCURSOR_THEME = "Bibata-Modern-Ice";
