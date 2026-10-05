@@ -68,9 +68,6 @@ in
         };
       };
     };
-    blueman = {
-      enable = true;
-    };
     libinput = {
       enable = true;
     };
@@ -97,6 +94,11 @@ in
           TIMELINE_LIMIT_MONTHLY = "0";
           TIMELINE_LIMIT_YEARLY = "0";
         };
+      };
+    };
+    gnome = {
+      gnome-keyring = {
+        enable = true;
       };
     };
   };

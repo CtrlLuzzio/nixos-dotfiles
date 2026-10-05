@@ -9,7 +9,6 @@
       HYPRCURSOR_THEME = "Bibata-Modern-Ice";
       HYPRCURSOR_SIZE = "22";
       FLAKE_DIR = "\${HOME}/nixos-dotfiles";
-      TZ = "America/Caracas";
     };
     sessionPath = [
       "$HOME/.local/bin"

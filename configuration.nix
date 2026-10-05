@@ -19,6 +19,7 @@
 
   time = {
     timeZone = "America/Caracas";
+    hardwareClockInLocalTime = true;
   };
 
   i18n = {

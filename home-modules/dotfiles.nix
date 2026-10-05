@@ -17,6 +17,7 @@ let
     yazi = "yazi";
     zellij = "zellij";
     mango = "mango";
+    niri = "niri";
     matugen = "matugen";
     nvim = "nvim";
     walker = "walker";
@@ -24,6 +25,8 @@ let
     rofi = "rofi";
     zed = "zed";
     themes = "themes";
+    quickshell = "quickshell";
+    ags = "ags";
     wallpapers = "wallpapers";
     "fontconfig/fonts.conf" = "fontconfig/fonts.conf";
   };

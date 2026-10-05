@@ -1,11 +1,13 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }:
 {
   home = {
     packages = with pkgs; [
+      vesktop
       fastfetch
       killall
       foot
@@ -21,7 +23,6 @@
       nwg-look
       kdePackages.qt6ct
       kdePackages.qtstyleplugin-kvantum
-      networkmanagerapplet
       swaynotificationcenter
       hyprpolkitagent
       hyprshutdown
@@ -31,7 +32,6 @@
       protonup-ng
       lazygit
       vimPlugins.lazygit-nvim
-      blueman
       ferdium
       libnotify
       wl-clipboard
@@ -76,6 +76,35 @@
       '')
       fetch
       modrinth-app
+      nautilus
+      nautilus-open-any-terminal
+      sushi
+      inputs.oniri.packages.${pkgs.system}.default
+      (writeShellScriptBin "gamescope-run" ''
+        gamescope_args=()
+        game_cmd=()
+        sep_found=false
+
+        for arg in "$@"; do
+          if [[ "$arg" == "--" && "$sep_found" == "false" ]]; then
+            sep_found=true
+          elif [[ "$sep_found" == "true" ]]; then
+            game_cmd+=("$arg")
+          else
+            gamescope_args+=("$arg")
+          fi
+        done
+
+        # No -- provided: treat everything as the game command
+        if [[ "$sep_found" == "false" ]]; then
+          game_cmd=("''${gamescope_args[@]}")
+          gamescope_args=()
+        fi
+
+        exec env LD_PRELOAD= ${pkgs.gamescope}/bin/gamescope \
+          "''${gamescope_args[@]}" \
+          -- env LD_PRELOAD="$LD_PRELOAD" "''${game_cmd[@]}"
+      '')
     ];
   };
 }

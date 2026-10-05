@@ -10,6 +10,12 @@
         enable = true;
       };
     };
+    noctalia = {
+      enable = true;
+    };
+    niri = {
+      enable = true;
+    };
     zsh = {
       enable = true;
     };
@@ -35,11 +41,25 @@
         openFirewall = true;
       };
     };
+    gamescope = {
+      enable = true;
+      capSysNice = true;
+    };
     nix-ld = {
       enable = true;
+      libraries = with pkgs; [
+        brotli
+        zlib
+        stdenv.cc.cc.lib
+        unixodbc
+        glib
+      ];
     };
     ssh = {
-      startAgent = true;
+      startAgent = false;
+    };
+    nm-applet = {
+      enable = false;
     };
   };
 }

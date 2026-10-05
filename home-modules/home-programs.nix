@@ -1,4 +1,7 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
+  imports = [
+    inputs.ags.homeManagerModules.default
+  ];
   programs = {
     git = {
       enable = true;
@@ -76,14 +79,18 @@
     };
     vscode = {
       enable = true;
-      package = pkgs.vscode.fhs;
+      package = pkgs.vscode.fhsWithPackages (ps: with ps; [
+        brotli
+        zlib
+        qt6.qtdeclarative
+      ]);
     };
     obs-studio = {
       enable = true;
       plugins = with pkgs.obs-studio-plugins; [
         obs-pipewire-audio-capture
         obs-vkcapture
-        obs-composite-blur
+        # obs-composite-blur
       ];
     };
     direnv = {
@@ -92,6 +99,24 @@
         enable = true;
       };
       enableZshIntegration = true;
+    };
+    quickshell = {
+      enable = true;
+    };
+    ags = {
+      enable = true;
+      configDir = null;
+      extraPackages = with pkgs; [
+        inputs.astal.packages.${pkgs.system}.hyprland
+        inputs.astal.packages.${pkgs.system}.wireplumber
+        inputs.astal.packages.${pkgs.system}.tray
+        inputs.astal.packages.${pkgs.system}.mpris
+        inputs.astal.packages.${pkgs.system}.network
+        inputs.astal.packages.${pkgs.system}.notifd
+        inputs.astal.packages.${pkgs.system}.bluetooth
+        inputs.astal.packages.${pkgs.system}.apps
+        dart-sass
+      ];
     };
   };
 }

@@ -5,6 +5,9 @@
       wget
       git
       curl
+      unzip
+      jq
+      jq-zsh-plugin
       python3
       cargo
       gnumake
@@ -14,6 +17,8 @@
       kitty
       os-prober
       bibata-cursors
+      xwayland-satellite
+      adw-gtk3
     ];
     sessionVariables = {
       XCURSOR_THEME = "Bibata-Modern-Ice";

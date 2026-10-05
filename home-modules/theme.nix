@@ -13,6 +13,9 @@
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
       };
+      "com/github/stunkymonkey/nautilus-open-any-terminal" = {
+        terminal = "foot";
+      };
     };
   };
   qt = {
