@@ -66,7 +66,7 @@
       matugen
       papirus-icon-theme
       (writeShellScriptBin "zen-browser" ''
-        exec flatpak run app.zen_browser.zen "$@"
+        zen-beta "$@"
       '')
       (writeShellScriptBin "change-theme" ''
         exec ${config.home.homeDirectory}/dotfiles/scripts/change_theme.sh "$@"

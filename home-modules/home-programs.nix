@@ -1,6 +1,7 @@
-{ pkgs, inputs, ... }: {
+{ config, pkgs, inputs, ... }: {
   imports = [
     inputs.ags.homeManagerModules.default
+    inputs.zen-browser.homeModules.beta
   ];
   programs = {
     git = {
@@ -117,6 +118,34 @@
         inputs.astal.packages.${pkgs.system}.apps
         dart-sass
       ];
+    };
+    zen-browser = {
+      enable = true;
+      setAsDefaultBrowser = true;
+      profiles.default = {
+        settings = {
+          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+          "devtools.chrome.enabled" = true;
+          "zen.view.use-single-toolbar" = false;
+        };
+        userChrome = ''
+          @import "${config.home.homeDirectory}/.cache/noctalia/zen-browser/zen-userChrome.css";
+        '';
+        userContent = ''
+          @import "${config.home.homeDirectory}/.cache/noctalia/zen-browser/zen-userContent.css";
+        '';
+        mods = [
+          "a6335949-4465-4b71-926c-4a52d34bc9c0" # Better Find Bar
+          "f7c71d9a-bce2-420f-ae44-a64bd92975ab" # Better Unloaded Tabs
+          "906c6915-5677-48ff-9bfc-096a02a72379" # Floating Status Bar
+          "bd92a9a0-1c00-4187-a66e-94c389fa5a59" # Sidebar Expand on Hover
+          "a5f6a231-e3c8-4ce8-8a8e-3e93efd6adec" # Cleaned URL bar
+        ];
+        search = {
+          force = true;
+          default = "google";
+        };
+      };
     };
   };
 }

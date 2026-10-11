@@ -55,7 +55,6 @@ in
         "org.DolphinEmu.dolphin-emu"
         "com.github.tchx84.Flatseal"
         "net.kuribo64.melonDS"
-        "app.zen_browser.zen"
       ];
       overrides = {
         global = {
