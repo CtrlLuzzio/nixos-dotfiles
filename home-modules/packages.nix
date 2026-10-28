@@ -7,6 +7,7 @@
 {
   home = {
     packages = with pkgs; [
+      libreoffice-fresh
       vesktop
       fastfetch
       killall

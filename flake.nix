@@ -9,6 +9,9 @@
     nix-flatpak = {
       url = "github:gmodena/nix-flatpak";
     };
+    umbriel = {
+      url = "github:noctalia-dev/umbriel/cachix";
+    };
     astal = {
       url = "github:aylur/astal";
     };

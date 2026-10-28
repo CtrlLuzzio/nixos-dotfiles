@@ -18,6 +18,7 @@ let
     zellij = "zellij";
     mango = "mango";
     niri = "niri";
+    umbriel = "umbriel";
     matugen = "matugen";
     nvim = "nvim";
     walker = "walker";
@@ -29,6 +30,9 @@ let
     ags = "ags";
     wallpapers = "wallpapers";
     "fontconfig/fonts.conf" = "fontconfig/fonts.conf";
+  };
+  states = {
+    "noctalia/settings.toml" = "noctalia/settings.toml";
   };
 in
 {
@@ -42,4 +46,7 @@ in
   xdg.configFile = builtins.mapAttrs (name: subpath: {
     source = create_symlink "${dotfiles}/${subpath}";
   }) configs;
+  xdg.stateFile = builtins.mapAttrs (name: subpath: {
+    source = create_symlink "${dotfiles}/${subpath}";
+  }) states;
 }

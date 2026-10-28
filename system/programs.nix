@@ -1,4 +1,8 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
+  disabledModules = [ "programs/wayland/umbriel.nix" ];
+  imports = [
+    inputs.umbriel.nixosModules.default
+  ];
   programs = {
     firefox = {
       enable = true;
@@ -11,6 +15,12 @@
       };
     };
     noctalia = {
+      enable = true;
+    };
+    umbriel = {
+      enable = true;
+    };
+    xwayland = {
       enable = true;
     };
     niri = {

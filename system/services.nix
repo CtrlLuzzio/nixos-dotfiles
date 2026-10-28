@@ -14,7 +14,7 @@ in
       pulse.enable = true;
     };
     displayManager = {
-      defaultSession = "hyprland";
+      defaultSession = "umbriel";
       sddm = {
         enable = true;
         theme = "sddm-astronaut-theme";
